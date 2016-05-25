@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>OÜ Karuteene autopark</title>
+		<link type="text/css"  rel="stylesheet" href="stiilid.css" />
+		<script src="skriptid.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div class="ymbris">
+			<h1 id="MasterPealkiri">OÜ Karuteene autopark</h1>
+			<div>
+				<ul id="menu">
+						<li><a href="index.html">Avaleht</a></li>
+						<li><a href="login.html">Logi sisse</a></li>
+						<li><a href="lisaKasutaja.html">Lisa kasutaja</a></li>
+						<li><a href="kuvamasin.html">Autod</a></li>
+						<li><a href="lisaMasin.html">Auto lisamine</a></li>
+						<li><a href="muudamasin.html">Auto muutmine</a></li>
+						<li><a href="kasutajad.html">Kasutajate vaade</a></li>
+						<li><a href="Vastutajad.html">Vastutavad kasutajad</a></li>						
+				</ul>
+			</div>
+			
+			<div class="sisu">
+				<h2>Kasutaja lisamine</h2>
+				<form action="lisaKasutaja.html" enctype="multipart/form-data" method="POST">
+					<table>
+						<tr>
+							<td><label for="nimi">Eesnimi: </label></td>
+							<td><input type="text" name="Eesnimi" placeholder="Eesnimi"/></td>
+						</tr>
+						<tr>
+							<td><label for="perenimi">Perekonnanimi: </label></td>
+							<td><input type="text" name="autor" placeholder="Pildi autor"/></td>
+						</tr>
+						<tr>
+							<td><label for="isikukood">Isikukood: </label></td>
+							<td><input type="text" name="isikukood" placeholder="Isikukood"/></td>
+						</tr>
+						<tr>
+							<td><label for="kasutajanimi">Kasutajanimi: </label></td>
+							<td><input type="text" name="kasutajanimi" placeholder="Kasutajanimi"/></td>
+						</tr>
+						<tr>
+							<td><label for="parool">Parool: </label></td>
+							<td><input type="password" name="parool" placeholder="Sisesta parool"/></td>
+						</tr>
+						<tr>
+							<td><label for="parooluuseti">Parool teist korda: </label></td>
+							<td><input type="password"  name="parooluuesti" placeholder="Sisesta parool veel kord!"/></td>
+						</tr>
+						<tr>
+							<td><label for="elukoht">Elukoht: </label></td>
+							<td><input type="text" name="kommentaar" placeholder="Elukoha aadress"/></td>
+						</tr>
+						<tr>
+							<td><label for="KasutajaFoto">Kasutaja portree: </label></td>
+							<td><input type="file"  name="KasutajaFoto"/></td>
+						</tr>
+						<tr>
+							<td><label for="KasutajaRoll">Kasutaja roll: </label></td>
+							<td><input type="radio" name="KasutajaRoll" value="admin"/>Administraator</td>
+							<td><input type="radio" name="KasutajaRoll" value="user"/>Kasutaja</td>
+						</tr>
+					</table>
+					<input type="submit" value="Loo kasutaja!"/>
+				</form>
+			
+			</div>
+			<p id="tail">
+ 				
+  				<img src="pildid/bear.jpg" alt="OÜ Karuteene" height="200" width="300" />
+			</p>
+		</div>
+	</body>
+</html>
+
+	</body>
+</html>
