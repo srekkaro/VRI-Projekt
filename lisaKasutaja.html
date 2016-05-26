@@ -11,70 +11,82 @@
 			<h1 id="MasterPealkiri">OÜ Karuteene autopark</h1>
 			<div>
 				<ul id="menu">
-						<li><a href="index.html">Avaleht</a></li>
-						<li><a href="login.html">Logi sisse</a></li>
-						<li><a href="lisaKasutaja.html">Lisa kasutaja</a></li>
-						<li><a href="kuvamasin.html">Autod</a></li>
+						<li><a href="kuvamasin.html">Autode vaade</a></li>
 						<li><a href="lisaMasin.html">Auto lisamine</a></li>
 						<li><a href="muudamasin.html">Auto muutmine</a></li>
+						<li><a href="vastutajad.html">Vastutavad kasutajad</a></li>	
 						<li><a href="kasutajad.html">Kasutajate vaade</a></li>
-						<li><a href="Vastutajad.html">Vastutavad kasutajad</a></li>						
+						<li><a href="lisaKasutaja.html">Lisa kasutaja</a></li>
+						<li><a href="login.html">Logi sisse</a></li>	
+						<li><a href="index.html">Avaleht</a></li>				
 				</ul>
 			</div>
 			
 			<div class="sisu">
 				<h2>Kasutaja lisamine</h2>
+				<div id="vorm">
 				<form action="lisaKasutaja.html" enctype="multipart/form-data" method="POST">
 					<table>
 						<tr>
 							<td><label for="nimi">Eesnimi: </label></td>
-							<td><input type="text" name="Eesnimi" placeholder="Eesnimi"/></td>
+							<td><input type="text" id="nimi" name="Eesnimi" placeholder="Eesnimi"/></td>
 						</tr>
 						<tr>
 							<td><label for="perenimi">Perekonnanimi: </label></td>
-							<td><input type="text" name="autor" placeholder="Pildi autor"/></td>
+							<td><input type="text" id="perenimi" name="autor" placeholder="Perekonnanimi"/></td>
 						</tr>
 						<tr>
 							<td><label for="isikukood">Isikukood: </label></td>
-							<td><input type="text" name="isikukood" placeholder="Isikukood"/></td>
+							<td><input type="text" id="isikukood" name="isikukood" placeholder="Isikukood"/></td>
 						</tr>
 						<tr>
 							<td><label for="kasutajanimi">Kasutajanimi: </label></td>
-							<td><input type="text" name="kasutajanimi" placeholder="Kasutajanimi"/></td>
+							<td><input type="text" id="kasutajanimi" name="kasutajanimi" placeholder="Kasutajanimi"/></td>
 						</tr>
 						<tr>
 							<td><label for="parool">Parool: </label></td>
-							<td><input type="password" name="parool" placeholder="Sisesta parool"/></td>
+							<td><input type="password" id="parool" name="parool" placeholder="Sisesta parool"/></td>
 						</tr>
 						<tr>
-							<td><label for="parooluuseti">Parool teist korda: </label></td>
-							<td><input type="password"  name="parooluuesti" placeholder="Sisesta parool veel kord!"/></td>
+							<td><label for="parooluuesti">Parool teist korda: </label></td>
+							<td><input type="password" id="parooluuesti" name="parooluuesti" placeholder="Sisesta parool veel kord!"/></td>
 						</tr>
 						<tr>
 							<td><label for="elukoht">Elukoht: </label></td>
-							<td><input type="text" name="kommentaar" placeholder="Elukoha aadress"/></td>
+							<td><input type="text" id="elukoht" name="kommentaar" placeholder="Elukoha aadress"/></td>
 						</tr>
 						<tr>
 							<td><label for="KasutajaFoto">Kasutaja portree: </label></td>
-							<td><input type="file"  name="KasutajaFoto"/></td>
+							<td><input type="file"  id="KasutajaFoto" name="KasutajaFoto"/></td>
 						</tr>
 						<tr>
-							<td><label for="KasutajaRoll">Kasutaja roll: </label></td>
-							<td><input type="radio" name="KasutajaRoll" value="admin"/>Administraator</td>
-							<td><input type="radio" name="KasutajaRoll" value="user"/>Kasutaja</td>
+							<td rowspan="2"><label for="KasutajaRoll">Kasutaja roll: </label></td>
+							<td><input type="radio" id ="KasutajaRoll" name="KasutajaRoll" value="admin"/>Administraator</td>
+							
+						</tr>
+						<tr>
+								<td><input type="radio" name="KasutajaRoll" value="user"/>Kasutaja</td>
 						</tr>
 					</table>
 					<input type="submit" value="Loo kasutaja!"/>
 				</form>
+				</div>
 			
 			</div>
-			<p id="tail">
- 				
-  				<img src="pildid/bear.jpg" alt="OÜ Karuteene" height="200" width="300" />
-			</p>
+			<div id="tail">
+				<div id="vasak">OÜ Karuteene <br>
+								Telefon: +372 1234 5678 90<br>
+								Epost: <a href="mailto:direktor@karuteene.org">direktor@karuteene.org</a><br>
+								Aadress: Karupoja põik 16, Tallinn <br>
+				</div>
+ 				<img src="pildid/bear.jpg" alt="OÜ Karuteene" />
+  				<div id="parem">
+  							Nam iaculis,<br>
+  				 			tellus et ornare dignissim, <br>
+  				 			lorem nulla pretium velit,<br>
+  				 			quis euismod lectus erat nec quam
+  				</div>
+			</div>
 		</div>
-	</body>
-</html>
-
 	</body>
 </html>
