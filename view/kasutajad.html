@@ -1,0 +1,21 @@
+﻿<div class="sisu">
+	<h2>Kasutajad</h2>
+	
+			<?php
+				if (isset($kasutajad)){
+					foreach($kasutajad as $kasutaja){
+					?>
+					<div class="kasutaja" border="solid">
+						<div id="kasutajapilt">
+							<img src="pildid/kasutaja/kuuno.jpg" alt="Kasutaja pilt" height="30px" width="30px"/>
+						</div>
+						<div id="kasutajaandmed>
+							Eesnimi: <br>
+							Perekonnanimi: <br>
+							Isikukood: <br>
+							Elukoht: <br>
+						</div>
+					</div>		
+				<?php }				
+			} ?>
+</div>

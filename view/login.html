@@ -1,0 +1,25 @@
+﻿
+			
+			<div class="sisu">
+				<h2>Sisselogimine</h2>
+					<div id="vorm">
+					<form action="?page=login" method="POST">
+					<table>
+						<tr>
+							<td><label for="kasutajanimi">Kasutajanimi: </label></td>
+							<td><input type="text" id="kasutajanimi" name="kasutajanimi"/></td>
+						</tr>
+						<tr>
+							<td><label for="parool">Parool: </label></td>
+							<td><input type="password" id="parool" name="parool"/></td>
+						</tr>
+					</table>
+					<input type="submit" value="Logi sisse!"/>
+				</form>
+				<?php if (isset($vead)):?>
+					<?php foreach($vead as $viga):?>
+						<div style="color:red;"><?php echo htmlspecialchars($viga); ?></div>
+							<?php endforeach;?>
+							<?php endif;?>
+				</div>
+			</div>
