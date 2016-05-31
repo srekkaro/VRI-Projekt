@@ -1,28 +1,28 @@
 ﻿
-			<div class="sisu">
 						<h2>Auto lisamine</h2>
 						<div id="vorm">
-					<form action="muudamasin.html" enctype="multipart/form-data" method="POST">
+					<form action="?page=muudaauto" enctype="multipart/form-data" method="POST">
+					<input type="hidden" name="id" value="<?php if (isset($auto['id'])) echo htmlspecialchars($auto['id']); ?>"/>
 					<table>
 						<tr>
 							<td><label for="vinkood">Auto tehasekood: </label></td>
-							<td><input type="text" id="vinkood" name="vinkood" placeholder="VIN kood"/></td>
+							<td><input type="text" id="vinkood" name="vinkood" value="<?php if (isset($auto['vinkood'])) echo htmlspecialchars($auto['vinkood']); ?>"/></td>
 						</tr>
 						<tr>
 							<td><label for="regnum">Auto registreerimisnumber: </label></td>
-							<td><input type="text" id="regnum" name="regnum" placeholder="Registreerimisnumber"/></td>
+							<td><input type="text" id="regnum" name="regnum" value="<?php if (isset($auto['regnum'])) echo htmlspecialchars($auto['regnum']); ?>"/></td>
 						</tr>
 						<tr>
 							<td><label for="mark">Auto mark: </label></td>
-							<td><input type="text" id="mark" name="mark" placeholder="Auto mark"/></td>
+							<td><input type="text" id="mark" name="mark" value="<?php if (isset($auto['mark'])) echo htmlspecialchars($auto['mark']); ?>"/></td>
 						</tr>
 						<tr>
 							<td><label for="mudel">Auto mudel: </label></td>
-							<td><input type="text" id="mudel" name="mudel" placeholder="Mudel"/></td>
+							<td><input type="text" id="mudel" name="mudel" value="<?php if (isset($auto['mudel'])) echo htmlspecialchars($auto['mudel']); ?>"/></td>
 						</tr>
 						<tr>
 							<td><label for="labisoit">Läbisõit: </label></td>
-							<td><input type="number" id="labisoit" name="labisoit" placeholder="999999"/></td>
+							<td><input type="number" id="labisoit" name="labisoit" value="<?php if (isset($auto['labisoit'])) echo htmlspecialchars($auto['labisoit']); ?>"/></td>
 						</tr>
 						<tr>
 							<td><label for="AutoFoto">Foto: </label></td>
@@ -32,5 +32,8 @@
 					<input type="submit" value="Muuda andmeid!"/>
 				</form>
 				</div>
-			
-			</div>
+			<?php if (isset($vead)):?>
+					<?php foreach($vead as $viga):?>
+						<div style="color:red;"><?php echo htmlspecialchars($viga); ?></div>
+					<?php endforeach;?>
+			<?php endif;?>

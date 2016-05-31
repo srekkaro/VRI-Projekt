@@ -19,9 +19,9 @@
 		case "lisakasutaja":
 			lisakasutaja();
 		break;
-#		case "muudakasutaja":
-#			muudakasutaja();
-#		break;
+		case "muudakasutaja":
+			muudakasutaja();
+		break;
 		case "kasutajad":
 			kasutajad();
 		break;

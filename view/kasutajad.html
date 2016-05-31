@@ -1,21 +1,24 @@
-﻿<div class="sisu">
+﻿
 	<h2>Kasutajad</h2>
-	
+	<a href="?page=lisakasutaja" class="nupplisa">Uus kasutaja</a>
 			<?php
 				if (isset($kasutajad)){
 					foreach($kasutajad as $kasutaja){
+						$id=$kasutaja['id_kasutaja'];
 					?>
-					<div class="kasutaja" border="solid">
-						<div id="kasutajapilt">
-							<img src="pildid/kasutaja/kuuno.jpg" alt="Kasutaja pilt" height="30px" width="30px"/>
+							<div class="kasutajad">
+							<img src=<?php echo htmlspecialchars($kasutaja['foto_k']); ?> alt="Kasutaja pilt"/>
+							Eesnimi: <?php echo htmlspecialchars($kasutaja['nimi']); ?><br>
+							Perekonnanimi: <?php echo htmlspecialchars($kasutaja['perenimi']); ?><br>
+							Isikukood:<?php echo htmlspecialchars($kasutaja['isikukood']); ?><br>
+							Elukoht: <?php echo htmlspecialchars($kasutaja['elukoht']); ?><br>
+							Kasutajatüüp: <?php echo htmlspecialchars($kasutaja['roll']); ?><br>
+							<a href=<?php echo "?page=muudakasutaja&id=$id" ?>  class="lebutton">Muuda</a>&nbsp;&nbsp;<a href=<?php echo "?page=kustutakasutaja&id=$id" ?>  class="lebutton">Kustuta</a>
 						</div>
-						<div id="kasutajaandmed>
-							Eesnimi: <br>
-							Perekonnanimi: <br>
-							Isikukood: <br>
-							Elukoht: <br>
-						</div>
-					</div>		
 				<?php }				
 			} ?>
-</div>
+				<?php if (isset($vead)):?>
+					<?php foreach($vead as $viga):?>
+						<div style="color:red;"><?php echo htmlspecialchars($viga); ?></div>
+					<?php endforeach;?>
+			<?php endif;?>

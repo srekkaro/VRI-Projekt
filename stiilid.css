@@ -66,6 +66,7 @@ body
 	padding-left: 40px;
 	padding-right: 40px;
 	padding-top: 10px;
+	overflow-y: auto;
 	
 }
 h2
@@ -75,16 +76,6 @@ h2
 	
 }
 
-.sisu:first-child
-{
-	margin: 25px;	
-	padding-bottom: 25px;
-	margin-bottom: 0px;
-	height: 85%;
-	text-align: justify;
-	
-	
-}
 #tail
 {
 	margin-top: 0px;
@@ -108,12 +99,49 @@ h2
 
 }
 
-#sisu img
+.kasutajad img
 {
-	/*display: block;
+	display: block;
 	margin-left: auto;
-	margin-right: auto; */
-	height: 60px;
+	margin-right: auto;
+	height: 100px;
+	width: auto;
+	opacity: 0.8;	
+
+}
+
+.kasutajad
+{	
+	position: relative;
+	display: inline-block;
+	float: left;
+	border-style: solid;
+	border-width: 1px;
+	background-color: white;
+	margin: 10px;
+	padding: 10px;
+	
+}
+
+.autod
+{	
+	position: relative;
+	display: inline-block;
+	float: left;
+	border-style: solid;
+	border-width: 1px;
+	background-color: white;
+	margin: 10px;
+	padding: 10px;
+	
+}
+
+.autod img
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height: 100px;
 	width: auto;
 	opacity: 0.8;	
 
@@ -162,3 +190,31 @@ h2
 	color: #800080;	
 }
 
+.nupplisa
+{	
+	display: block;
+	width: 100px;
+	padding: 8px;
+	font-family: Helvetica, sans-serif;
+	border-radius: 8px;
+	border-color: #99cc00;
+	border-style: solid;
+	background-color: yellow;
+	text-align: center;
+	margin: 0px;
+	text-decoration: none;
+	
+	clear: right;
+	
+}
+
+.nupplisa:hover
+{
+	background: aquamarine;
+	color: darkslategrey;	
+}
+
+.nupplisa:visited
+{
+	color: #800080;	
+}

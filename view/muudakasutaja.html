@@ -1,0 +1,55 @@
+﻿
+				<h2>Kasutaja muutmine</h2>
+				<div id="vorm">
+				<form action="?page=muudakasutaja" enctype="multipart/form-data" method="POST">
+					<input type="hidden" name="id" value="<?php if (isset($kasutaja['id'])) echo htmlspecialchars($kasutaja['id']); ?>"/><br/>
+					<table>
+						<tr>
+							<td><label for="nimi">Eesnimi: </label></td>
+							<td><input type="text" id="nimi" name="Eesnimi" value="<?php if (isset($kasutaja['nimi'])) echo htmlspecialchars($kasutaja['nimi']); ?>"/></td>
+						</tr>
+						<tr>
+							<td><label for="perenimi">Perekonnanimi: </label></td>
+							<td><input type="text" id="perenimi" name="perenimi" value="<?php if (isset($kasutaja['perenimi'])) echo htmlspecialchars($kasutaja['perenimi']); ?>"/></td>
+						</tr>
+						<tr>
+							<td><label for="isikukood">Isikukood: </label></td>
+							<td><input type="text" id="isikukood" name="isikukood" value="<?php if (isset($kasutaja['isikukood'])) echo htmlspecialchars($kasutaja['isikukood']); ?>"/></td>
+						</tr>
+						<tr>
+							<td><label for="kasutajanimi">Kasutajanimi: </label></td>
+							<td><input type="text" id="kasutajanimi" name="kasutajanimi" value="<?php if (isset($kasutaja['kasutajanimi'])) echo htmlspecialchars($kasutaja['kasutajanimi']); ?>"/></td>
+						</tr>
+						<tr>
+							<td><label for="parool">Parool: </label></td>
+							<td><input type="password" id="parool" name="parool" placeholder="Sisesta parool"/></td>
+						</tr>
+						<tr>
+							<td><label for="parooluuesti">Parool teist korda: </label></td>
+							<td><input type="password" id="parooluuesti" name="parooluuesti" placeholder="Sisesta parool veel kord!"/></td>
+						</tr>
+						<tr>
+							<td><label for="elukoht">Elukoht: </label></td>
+							<td><input type="text" id="elukoht" name="elukoht" value="<?php if (isset($kasutaja['elukoht'])) echo htmlspecialchars($kasutaja['elukoht']); ?>"/></td>
+						</tr>
+						<tr>
+							<td><label for="KasutajaFoto">Kasutaja portree: </label></td>
+							<td><input type="file"  id="KasutajaFoto" name="KasutajaFoto"/></td>
+						</tr>
+						<tr>
+							<td rowspan="2"><label for="KasutajaRoll">Kasutaja roll: </label></td>
+							<td><input type="radio" id ="KasutajaRoll" name="KasutajaRoll" value="admin" checked="<?php if (isset($kasutaja['roll'])) echo htmlspecialchars($kasutaja['roll']); ?>"/>Administraator</td>
+							
+						</tr>
+						<tr>
+								<td><input type="radio" name="KasutajaRoll" value="user"/>Kasutaja</td>
+						</tr>
+					</table>
+					<input type="submit" value="Muuda kasutaja!"/>
+				</form>
+				</div>
+				<?php if (isset($vead)):?>
+					<?php foreach($vead as $viga):?>
+						<div style="color:red;"><?php echo htmlspecialchars($viga); ?></div>
+					<?php endforeach;?>
+			<?php endif;?>

@@ -1,9 +1,7 @@
 ﻿
-			
-			<div class="sisu">
 				<h2>Auto lisamine</h2>
 					<div id="vorm">
-					<form action="lisaMasin.html" enctype="multipart/form-data" method="POST">
+					<form action="?page=lisaauto" enctype="multipart/form-data" method="POST">
 					<table>
 						<tr>
 							<td><label for="vinkood">Auto tehasekood: </label></td>
@@ -33,5 +31,8 @@
 					<input type="submit" value="Lisa auto!"/>
 				</form>
 				</div>
-			
-			</div>
+			<?php if (isset($vead)):?>
+					<?php foreach($vead as $viga):?>
+						<div style="color:red;"><?php echo htmlspecialchars($viga); ?></div>
+					<?php endforeach;?>
+			<?php endif;?>

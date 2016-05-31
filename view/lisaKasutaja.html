@@ -1,8 +1,7 @@
 ﻿
-			<div class="sisu">
 				<h2>Kasutaja lisamine</h2>
 				<div id="vorm">
-				<form action="lisaKasutaja.html" enctype="multipart/form-data" method="POST">
+				<form action="?page=lisakasutaja" enctype="multipart/form-data" method="POST">
 					<table>
 						<tr>
 							<td><label for="nimi">Eesnimi: </label></td>
@@ -10,7 +9,7 @@
 						</tr>
 						<tr>
 							<td><label for="perenimi">Perekonnanimi: </label></td>
-							<td><input type="text" id="perenimi" name="autor" placeholder="Perekonnanimi"/></td>
+							<td><input type="text" id="perenimi" name="perenimi" placeholder="Perekonnanimi"/></td>
 						</tr>
 						<tr>
 							<td><label for="isikukood">Isikukood: </label></td>
@@ -30,7 +29,7 @@
 						</tr>
 						<tr>
 							<td><label for="elukoht">Elukoht: </label></td>
-							<td><input type="text" id="elukoht" name="kommentaar" placeholder="Elukoha aadress"/></td>
+							<td><input type="text" id="elukoht" name="elukoht" placeholder="Elukoha aadress"/></td>
 						</tr>
 						<tr>
 							<td><label for="KasutajaFoto">Kasutaja portree: </label></td>
@@ -42,12 +41,14 @@
 							
 						</tr>
 						<tr>
-								<td><input type="radio" name="KasutajaRoll" value="user"/>Kasutaja</td>
+								<td><input type="radio" name="KasutajaRoll" value="user" checked="checked"/>Kasutaja</td>
 						</tr>
 					</table>
 					<input type="submit" value="Loo kasutaja!"/>
 				</form>
 				</div>
-			
-			</div>
-
+			<?php if (isset($vead)):?>
+					<?php foreach($vead as $viga):?>
+						<div style="color:red;"><?php echo htmlspecialchars($viga); ?></div>
+					<?php endforeach;?>
+			<?php endif;?>
