@@ -54,14 +54,8 @@
 				if (mysqli_num_rows($result)==0){
 					$errors[]= "Sellist kasutajat ei leitud!";
 					include_once('view/login.html');
-				}
-		
-		
+				}		
 		}
-	}
-	
-	function vastutajad(){
-		include_once('view/vastutajad.html');	
 	}
 	
 	function lisakasutaja(){
@@ -190,17 +184,18 @@
 						$passw=sha1($passw);
 					}
 				}
-				
-				if (empty($_POST["elukoht"])){
-					$errors[]="Kasutajal peab olema elukoht!";
+				else {
+					$passw=$kasutaja['password'];
 				}
 				
-				if (($_POST["KasutajaRoll"]=="user") && ($_POST["KasutajaRoll"])=="admin"){
-					$vead[]="Kasutaja peab olema kas user või admin";
+				if (empty($_POST["elukoht"])){
+					$vead[]="Kasutajal peab olema elukoht!";
 				}
 				if (!empty($_FILES['KasutajaFoto']['name'])){
 					$pildiurl=uploadKasutaja('KasutajaFoto');
-				} 	
+					print_r($pildiurl);
+				}
+				$id=mysqli_real_escape_string($connection, $_POST["id"]); 	
 				$nimi=mysqli_real_escape_string($connection, $_POST["Eesnimi"]);
 				$perenimi=mysqli_real_escape_string($connection, $_POST["perenimi"]);
 				$isikukood=mysqli_real_escape_string($connection, $_POST["isikukood"]);
@@ -209,10 +204,10 @@
 				$roll=mysqli_real_escape_string($connection, $_POST["KasutajaRoll"]);
 				if ($pildiurl!=""){
 					$pildiurl=mysqli_real_escape_string($connection, $pildiurl);
-					$sql= "UPDATE srekkaro__kasutaja SET nimi='$nimi', perenimi='$perenimi', kasutajanimi='$kasutajanimi', password='$passw', isikukood='$isikukood', elukoht='$elukoht', foto_k='$pildiurl', roll=$roll') WHERE id_kasutaja='$id'";
+					$sql= "UPDATE srekkaro__kasutaja SET nimi='$nimi', perenimi='$perenimi', kasutajanimi='$kasutajanimi', password='$passw', isikukood='$isikukood', elukoht='$elukoht', foto_k='$pildiurl', roll='$roll' WHERE id_kasutaja='$id'";
 				}
-				if ($pildiurl!=""){
-					$sql= "UPDATE srekkaro__kasutaja SET nimi='$nimi', perenimi='$perenimi', kasutajanimi='$kasutajanimi', password='$passw', isikukood='$isikukood', elukoht='$elukoht', roll=$roll') WHERE id_kasutaja='$id'";
+				if ($pildiurl==""){
+					$sql= "UPDATE srekkaro__kasutaja SET nimi='$nimi', perenimi='$perenimi', kasutajanimi='$kasutajanimi', password='$passw', isikukood='$isikukood', elukoht='$elukoht', roll='$roll' WHERE id_kasutaja='$id'";
 				}
 				if (empty($vead)){
 						$tulemus=mysqli_query($connection, $sql);
@@ -229,9 +224,33 @@
 	}
 	
 	function kustutakasutaja(){
-		/*promt, kas on kindel ja et oleks vähemalt üks admin alles*/
-		kasutajad();	
-	}
+			global $connection;
+			if ((empty($_SESSION['user'])) || ($_SESSION['roll']!="admin")) {
+				header("Location: ?page=login");	
+			}
+			if ($_SERVER['REQUEST_METHOD']=='GET'){
+				if ($_GET['id']=="") {
+					header("Location: ?page=autod");	
+				}
+				else {
+					$kasutajaid=htmlspecialchars($_GET['id']);	
+				}
+			}
+			$kasutajaid=mysqli_real_escape_string($connection, $kasutajaid);
+			$sql="DELETE from srekkaro__kasutaja WHERE id_kasutaja='$kasutajaid'";
+			if (empty($vead)){	
+				$tulemus=mysqli_query($connection, $sql);
+				$viga= mysqli_error($connection);
+				print_r($viga);	
+					if ($tulemus){
+						if(mysqli_affected_rows($connection)>0){
+							header("Location: ?page=kasutajad");
+						}
+					
+					}						
+			}
+	}	
+	
 	
 	function muudaauto(){
 			global $connection;
@@ -303,6 +322,37 @@
 			}
 		
 		include_once('view/muudamasin.html');	
+	}
+	
+	function kustutaauto(){
+			global $connection;
+			if (empty($_SESSION['user'])) {
+				header("Location: ?page=login");	
+			}
+			if ($_SESSION['roll']!="admin"){
+				$vead[]="Auto kustutamiseks pead olema administraator!";
+				header("Location: ?page=autod");
+		}
+			if ($_SERVER['REQUEST_METHOD']=='GET'){
+				if ($_GET['id']=="") {
+					header("Location: ?page=autod");	
+				}
+				else {
+					$autoid=htmlspecialchars($_GET['id']);	
+				}
+			}
+			$autoid=mysqli_real_escape_string($connection, $autoid);
+			$sql="DELETE from srekkaro__masin WHERE id='$autoid'";
+			if (empty($vead)){	
+				$tulemus=mysqli_query($connection, $sql);
+				$viga= mysqli_error($connection);
+				print_r($viga);	
+					if ($tulemus){
+						if(mysqli_affected_rows($connection)>0){
+							header("Location: ?page=autod");
+							}
+						}
+					}						
 	}
 
 	function lisaauto(){
@@ -380,7 +430,7 @@ function uploadKasutaja($name){
 	$extension = end($ajutine);
 
 	if ( in_array($_FILES[$name]["type"], $allowedTypes)
-		&& ($_FILES[$name]["size"] < 100000)
+		&& ($_FILES[$name]["size"] < 600000)
 		&& in_array($extension, $allowedExts)) {
     // fail õiget tüüpi ja suurusega
 		if ($_FILES[$name]["error"] > 0) {

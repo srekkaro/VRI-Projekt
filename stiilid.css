@@ -147,6 +147,13 @@ h2
 
 }
 
+.pilt img
+{	display: block;
+	float:right;
+	height: 200px;
+	width: auto;
+}
+
 #parem
 {
 	position: absolute;

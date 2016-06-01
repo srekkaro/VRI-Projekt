@@ -1,9 +1,10 @@
 ﻿
-						<h2>Auto lisamine</h2>
+						<h2>Auto muutmine</h2>
 						<div id="vorm">
 					<form action="?page=muudaauto" enctype="multipart/form-data" method="POST">
 					<input type="hidden" name="id" value="<?php if (isset($auto['id'])) echo htmlspecialchars($auto['id']); ?>"/>
 					<table>
+						<div class="pilt"><img src="<?php if (isset($auto['foto_s'])) echo htmlspecialchars($auto['foto_s']); ?>" alt="masina pilt"/></div>
 						<tr>
 							<td><label for="vinkood">Auto tehasekood: </label></td>
 							<td><input type="text" id="vinkood" name="vinkood" value="<?php if (isset($auto['vinkood'])) echo htmlspecialchars($auto['vinkood']); ?>"/></td>

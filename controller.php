@@ -25,17 +25,14 @@
 		case "kasutajad":
 			kasutajad();
 		break;
-#		case "lisavastutaja":
-#			lisavastutaja();
-#		break;
-#		case "muudavastutaja":
-#			muudavastutaja();
-#		break;
-		case "vastutajad":
-			vastutajad();
-		break;
 		case "muudaauto":
 			muudaauto();
+		break;
+		case "kustutaauto":
+			kustutaauto();
+		break;
+		case "kustutakasutaja":
+			kustutakasutaja();
 		break;
 		case "lisaauto":
 			lisaauto();

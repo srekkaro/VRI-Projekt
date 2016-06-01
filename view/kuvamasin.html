@@ -2,6 +2,7 @@
 			
 
 			<h2>Autopark</h2>
+
 			<a href="?page=lisaauto" class="nupplisa">Uus auto</a>
 			<?php
 				if (isset($autod)){
@@ -19,9 +20,9 @@
 						</div>
 				<?php }				
 			} ?>
-				<?php if (isset($vead)):?>
+			<?php if (isset($vead)):?>
 					<?php foreach($vead as $viga):?>
 						<div style="color:red;"><?php echo htmlspecialchars($viga); ?></div>
-					<?php endforeach;?>
+			<?php endforeach;?>
 			<?php endif;?>
 

@@ -15,13 +15,11 @@
 						<?php if(isset($_SESSION['user']) && ($_SESSION['roll']=="admin")): ?>
 							<li><a href="?page=logout">Logi välja</a></li>
 							<li><a href="?page=autod">Autode vaade</a></li>						
-							<li><a href="?page=vastutajad">Vastutavad kasutajad</a></li>	
 							<li><a href="?page=kasutajad">Kasutajate vaade</a></li>
 							<li><a href="?">Avaleht</a></li>
 						<?php elseif(isset($_SESSION['user']) && ($_SESSION['roll']=="user")): ?>
 							<li><a href="?page=logout">Logi välja</a></li>
 							<li><a href="?page=autod">Autode vaade</a></li>	
-							<li><a href="?page=vastutajad">Vastutavad kasutajad</a></li>
 							<li><a href="?">Avaleht</a></li>
 						<?php else: ?>
 							<li><a href="?page=login">Logi sisse</a></li>	
@@ -30,6 +28,3 @@
 				</ul>
 			</div>
 			<div class="sisu">
-			
-<!-- <li><a href="?page=lisaauto">Auto lisamine</a></li> 
-<li><a href="?page=lisakasutaja">Lisa kasutaja</a></li> -->

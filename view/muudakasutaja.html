@@ -2,8 +2,9 @@
 				<h2>Kasutaja muutmine</h2>
 				<div id="vorm">
 				<form action="?page=muudakasutaja" enctype="multipart/form-data" method="POST">
-					<input type="hidden" name="id" value="<?php if (isset($kasutaja['id'])) echo htmlspecialchars($kasutaja['id']); ?>"/><br/>
+					<input type="hidden" name="id" value="<?php if (isset($kasutaja['id_kasutaja'])) echo htmlspecialchars($kasutaja['id_kasutaja']); ?>"/><br/>
 					<table>
+					<div class="pilt"><img src="<?php if (isset($kasutaja['foto_k'])) echo htmlspecialchars($kasutaja['foto_k']); ?>" alt="kasutaja pilt" /></div>
 						<tr>
 							<td><label for="nimi">Eesnimi: </label></td>
 							<td><input type="text" id="nimi" name="Eesnimi" value="<?php if (isset($kasutaja['nimi'])) echo htmlspecialchars($kasutaja['nimi']); ?>"/></td>
@@ -34,17 +35,17 @@
 						</tr>
 						<tr>
 							<td><label for="KasutajaFoto">Kasutaja portree: </label></td>
-							<td><input type="file"  id="KasutajaFoto" name="KasutajaFoto"/></td>
+							<td><input type="file"  id="KasutajaFoto" name="KasutaFoto"/></td>
 						</tr>
 						<tr>
 							<td rowspan="2"><label for="KasutajaRoll">Kasutaja roll: </label></td>
-							<td><input type="radio" id ="KasutajaRoll" name="KasutajaRoll" value="admin" checked="<?php if (isset($kasutaja['roll'])) echo htmlspecialchars($kasutaja['roll']); ?>"/>Administraator</td>
-							
+							<td><input type="radio" id ="KasutajaRoll" name="KasutajaRoll" value="admin" <?php if (isset($kasutaja['roll']) && ($kasutaja['roll']=="admin")): echo "checked"; endif?> />Administraator</td>
 						</tr>
 						<tr>
-								<td><input type="radio" name="KasutajaRoll" value="user"/>Kasutaja</td>
+								<td><input type="radio" name="KasutajaRoll" value="user" <?php if (isset($kasutaja['roll']) && ($kasutaja['roll']=="user")): echo "checked"; endif ?>/>Kasutaja</td>
 						</tr>
 					</table>
+					
 					<input type="submit" value="Muuda kasutaja!"/>
 				</form>
 				</div>
