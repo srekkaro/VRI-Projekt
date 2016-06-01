@@ -10,13 +10,13 @@
 						$id=$auto['id'];
 					?>
 							<div class="autod">
-							<img src=<?php echo htmlspecialchars($auto['foto_s']); ?> alt="Auto pilt"/>
+							<img src="<?php echo htmlspecialchars($auto['foto_s']); ?>" alt="Auto pilt"/>
 							Registri märk: <?php echo htmlspecialchars($auto['regnum']); ?><br>
 							Vin Kood: <?php echo htmlspecialchars($auto['vinkood']); ?><br>
 							Mark:<?php echo htmlspecialchars($auto['mark']); ?><br>
 							Mudel: <?php echo htmlspecialchars($auto['mudel']); ?><br>
 							Läbisõit: <?php echo htmlspecialchars($auto['labisoit']); ?><br>
-							<a href=<?php echo "?page=muudaauto&id=$id" ?>  class="lebutton">Muuda</a>&nbsp;&nbsp;<a href=<?php echo "?page=kustutaauto&id=$id" ?>  class="lebutton">Kustuta</a>
+							<a href="<?php echo "?page=muudaauto&id=$id" ?>"  class="lebutton">Muuda</a>&nbsp;&nbsp;<a href="<?php echo "?page=kustutaauto&id=$id" ?>"  class="lebutton">Kustuta</a>
 						</div>
 				<?php }				
 			} ?>

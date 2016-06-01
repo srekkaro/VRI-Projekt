@@ -4,12 +4,30 @@
 		<meta charset="utf-8" />
 		<title>OÜ Karuteene</title>
 		<link type="text/css"  rel="stylesheet" href="stiilid.css" />
-		<script src="skriptid.js" type="text/javascript"></script>
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script>		
+			$(document).ready(function() {
+				$('body').dblclick(function(){
+					$('body').css('background-color', '#CD5C5C');
+					});	
+				$('body').click(function(){
+					$('body').css('background-color', '#99cc00');
+				});
+				$('h1').mouseenter(function(){$('h1').css({'textShadow': '10px 10px 10px black'});
+					});
+				$('h1').mouseleave(function(){$('h1').css({'textShadow': 'none'});
+					});	
+				$('h2').mouseenter(function(){$('h2').css({'textShadow': '10px 10px 5px black'});
+					});
+				$('h2').mouseleave(function(){$('h2').css({'textShadow': 'none'});
+					});	
+				
+		});	</script>
 	</head>
 	<body>
 		<div class="ymbris">
 			
-			<h1 id="MasterPealkiri">Autode andmebaas</h1>
+			<h1 id="MasterPealkiri" >Autode andmebaas</h1>
 			<div>
 				<ul id="menu">
 						<?php if(isset($_SESSION['user']) && ($_SESSION['roll']=="admin")): ?>
