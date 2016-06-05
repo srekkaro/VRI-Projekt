@@ -1,7 +1,7 @@
-Saidi admin kasutajad on:
+Saidi admin kasutajad on: 
   kasutaja: "nu"
   parool: "zajats"
-
+ning
   kasutaja: "elmar"
   parool: "ninatark"
 
